@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2 style="color: #2c3e50; margin-bottom: 5px;">Start New Interview</h2>
+    <p style="color: #888; font-size: 14px; margin-bottom: 25px;">Upload your resume and paste the job description to get started</p>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Job Title</label>
+        <input type="text" name="job_title" placeholder="e.g. Software Engineer" required>
+
+        <label>Company Name</label>
+        <input type="text" name="company_name" placeholder="e.g. Google">
+
+        <label>Job Description</label>
+        <textarea name="job_description" rows="8" placeholder="Paste the full job description here..." required></textarea>
+
+        <label>Upload Resume (PDF)</label>
+        <input type="file" name="resume" accept=".pdf" required>
+
+        <br>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">Generate Interview Questions</button>
+    </form>
+</div>
+
+{% endblock %}

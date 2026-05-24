@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="text-align: center; padding: 60px;">
+    <h1 style="font-size: 36px; color: #2c3e50; margin-bottom: 15px;">🎤 AI Mock Interview</h1>
+    <p style="color: #888; margin-bottom: 30px;">Upload your resume, paste a job description, and practice with AI generated interview questions tailored specifically to you.</p>
+    <a href="{{ url_for('main.register') }}" class="btn btn-primary" style="margin-right: 10px;">Get Started</a>
+    <a href="{{ url_for('main.login') }}" class="btn" style="background: #ecf0f1;">Login</a>
+</div>
+{% endblock %}

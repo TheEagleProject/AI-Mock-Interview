@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card" style="text-align: center;">
+    <h2 style="color: #2c3e50; margin-bottom: 5px;">Interview Complete!</h2>
+    <p style="color: #888; font-size: 14px;">{{ session.job_title }} at {{ session.company_name }}</p>
+    <div style="font-size: 64px; font-weight: bold; color: #3498db; margin: 20px 0;">
+        {{ overall_score }}/10
+    </div>
+    <p style="color: #888;">Overall Score</p>
+</div>
+
+{% for q in questions %}
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <p style="color: #888; font-size: 13px;">Question {{ q.question_number }} of 7</p>
+        <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 12px; font-size: 13px;">
+            {{ q.score }}/10
+        </span>
+    </div>
+
+    <h3 style="color: #2c3e50; margin-bottom: 10px;">{{ q.question }}</h3>
+
+    <div style="background: #f9f9f9; border-left: 4px solid #3498db; padding: 12px; border-radius: 4px; margin-bottom: 15px;">
+        <p style="font-size: 13px; color: #555;"><strong>Your Answer:</strong></p>
+        <p style="font-size: 13px; color: #333;">{{ q.answer }}</p>
+    </div>
+
+    <div style="background: #f0fff0; border-left: 4px solid #2ecc71; padding: 12px; border-radius: 4px; margin-bottom: 10px;">
+        <p style="font-size: 13px; color: #555;"><strong>Feedback:</strong></p>
+        <p style="font-size: 13px; color: #333; white-space: pre-line;">{{ q.feedback }}</p>
+    </div>
+</div>
+{% endfor %}
+
+<div style="text-align: center; margin: 20px 0;">
+    <a href="{{ url_for('main.interview') }}" class="btn btn-primary" style="margin-right: 10px;">Start New Interview</a>
+    <a href="{{ url_for('main.dashboard') }}" class="btn" style="background: #ecf0f1;">Back to Dashboard</a>
+</div>
+
+{% endblock %}
