@@ -7,6 +7,7 @@ from datetime import datetime
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
 
@@ -26,7 +27,6 @@ class User(UserMixin, db.Model):
 
 class Resume(db.Model):
     __tablename__ = 'resumes'
-
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     extracted_text = db.Column(db.Text, nullable=False)
